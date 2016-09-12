@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>Fancy Note Taker</title>
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <div id="container">
+            <div class="title">
+                <h1>Add Info!</h1>
+            </div>
+            <div id="content">
+                <form method="post" action="{{ url_for('addInfo') }}">
+                    <div style="float:left;">
+                  <input type="text" name="Company" /><br />
+                  <label for="Company">Company:</label>
+                    </div>
+                    <div style="float:left;">
+                  <input type="text" name="Information" /><br />
+                  <label for="Information">Attributes:
+                      <br>(separate field and value with ':')
+                      <br>(separate multiple field:values with ',,')
+                  </label>
+                    </div>
+                    <div style="float:left;">
+                  <input type="submit" />
+                    </div>
+                </form>
+            </div>
+            <div class="btn-group" data-toggle="buttons">
+                {% for field in fields %}
+                <label class="btn btn-primary" id="{{ field }}">
+                    <input type="radio" name="options"> {{ field }}
+                </label>
+                {% endfor %}
+            </div>
+            <div style="float:left;">
+                <p>
+                    <strong>Companies:</strong>
+                    <br>
+                    {% for comp in companies %}
+                    {{ comp }}
+                    <br>
+                    {% endfor %}
+                </p>
+            </div>
+        </div>
+        <div id="chart">
+        </div>
+        <script src="//d3js.org/d3.v3.min.js"></script>
+
+
+<script>
+
+    var margin = 20;
+    var diameter = 960;
+
+
+
+
+
+
+
+    </body>
+</html>
+ 
